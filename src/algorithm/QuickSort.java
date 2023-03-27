@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class QuickSort {
-    public static void main(String[] args) throws IOException {
+    public void quickSort1() throws IOException {
 
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); //모았다가 전송하는 클래스
         //system.in => 콘솔에서 데이터 입력받을 때 사용 inputStream 타입의 필드인 System클래스의 in 정적필드
