@@ -1,39 +1,36 @@
 package algorithm;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class InsertSort {
     public static void main(String[] args) {
-        //은행 ATM 문제
-        //사람수 1<= N <= 1000
-        //인출하는데 걸리는 시간 1 <= P <= 1000
-        //인출시간 순으로 데이터 정렬
+       int[] a= new int[]{3, 5, 2, 1, 4};
+        insertion_sort(a);
+    }
 
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        int[] A = new int[N]; //사람수
-        int[] S = new int[N]; //시간 배열
+    public static void insertion_sort(int[] a){
 
-        for(int i=0; i<N; i++){
-            A[i] = sc.nextInt(); //N만큼 반복해서 A배열에 저장
-        }
-        for(int i=1; i<N; i++){ //삽입정렬
-            int insert_point=i;
-            int insert_value=A[i];
-            for(int j=i-1; j>=0; j--){
-                if(A[j]<A[i]){ //앞이 뒤보다 작은경우
-                    insert_point = j+1;
-                }
-                if(j==0){
-                    insert_point = 0;
-                }
+        insertion_sort_in(a,a.length);
+        System.out.println(Arrays.toString(a));
+    }
+
+
+    private static void insertion_sort_in(int[] a, int size){
+        for(int i=1; i<size; i++){
+            int target = a[i];
+            int j = i-1; //0자리부터 반복
+
+
+            // 타겟이 이전원소보다 작아질때까지 반복 5>2 되면 중단
+            while(j>=0 && target < a[j]){ //2<5
+                a[j +1] = a[j];
+                System.out.println("target"+target);
+                j--;
+
             }
-
-
-
+            a[j+1]=target;
 
         }
-
-
     }
 }
