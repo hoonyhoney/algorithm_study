@@ -10,9 +10,11 @@ public class HashSliding {
      * N=7일, K=4일 연속, 매출종류구하기
      */
     public static void main(String[] args) {
-        int[] arrays = {20,12,20,10,23,17,10};
-        int N = 7;
+        int[] arrays = {20,12,20,10,23,17,10,10,20,12,12,12,12,20};
+        int N = arrays.length;
         int K = 4;
+        List<Integer> answer = solution(arrays,N,K);
+        System.out.println(answer.toString());
     }
 
     public static List<Integer> solution(int[] arrays, int N, int K){
@@ -26,18 +28,36 @@ public class HashSliding {
          */
 
         List<Integer> answer= new ArrayList<Integer>();
+        List<Integer> newList = new ArrayList<>();
         HashSet<Integer> set = new HashSet<Integer>();
 
-        for (int i=0; i<arrays.length-K+1;i++){
-            set.add(arrays[i]);
+        for (int i=0; i<K;i++){
+            newList.add(arrays[i]);
+            set.add(newList.get(i));
         }
         int hashsetSize = set.size();
         answer.add(hashsetSize);
 
-        for(int i=K; i<N;i++) {
+        for(int i=K; i<N ;i++) {
+            newList.add(arrays[i]);
+            newList.remove(newList.get(0));
+            Set set1=makeSet(newList);
 
+            hashsetSize=set1.size();
+            answer.add(hashsetSize);
         }
+
 
        return answer;
     }
+
+    public static Set makeSet(List<Integer> newList) {
+        HashSet<Integer> set1 = new HashSet<Integer>();
+        for (Integer integer : newList) {
+            set1.add(integer);
+        }
+        return set1;
+    }
+
 }
+
