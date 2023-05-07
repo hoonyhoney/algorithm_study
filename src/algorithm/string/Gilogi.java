@@ -1,7 +1,6 @@
-package algorithm;
+package algorithm.string;
 
 import java.util.Scanner;
-import java.util.Stack;
 
 //회문문자열 문제
 public class Gilogi {

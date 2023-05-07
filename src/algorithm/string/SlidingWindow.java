@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.string;
 
 public class SlidingWindow {
     public static void main(String[] args) {
